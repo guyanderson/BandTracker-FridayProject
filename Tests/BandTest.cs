@@ -86,7 +86,7 @@ namespace Band_Test
     }
 
     [Fact]
-    public void GetVenues_ReturnsAllBands_True()
+    public void GetVenuesByBandId_ReturnsAllVenues_True()
     {
 
       Band testBand = new Band("Guitar Hero");
@@ -98,7 +98,7 @@ namespace Band_Test
 
       testBand.AddVenue(testVenue1);
       testBand.AddVenue(testVenue2);
-      List<Venue> savedVenues = testBand.GetVenues();
+      List<Venue> savedVenues = testBand.GetVenuesByBandId();
       List<Venue> testList = new List<Venue> {testVenue1, testVenue2};
 
       Assert.Equal(testList, savedVenues);

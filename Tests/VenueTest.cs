@@ -85,7 +85,7 @@ namespace Venue_Test
     }
 
     [Fact]
-    public void GetBands_ReturnsAllVenues_True()
+    public void GetBandsByVenueId_ReturnsAllBands_True()
     {
       Venue testVenue = new Venue("Mom's Garage");
       testVenue.Save();
@@ -97,13 +97,28 @@ namespace Venue_Test
       testVenue.AddBand(testBand1);
       testVenue.AddBand(testBand2);
 
-      List<Band> savedBands = testVenue.GetBands();
+      List<Band> savedBands = testVenue.GetBandsByVenueId();
       List<Band> testList = new List<Band> {testBand1, testBand2};
       //CONSOLE LOGGING LIST ITEMS (GETTING IDs)
       Console.WriteLine("savedBands list id = {0}, {1}", savedBands[0].GetName(), savedBands[1].GetId());
       Console.WriteLine("testList list id = {0}, {1}", testList[0].GetName(), testList[1].GetId());
 
       Assert.Equal(testList, savedBands);
+    }
+
+    [Fact]
+    public void Update_UpdatesVenueInDatabase_True_5()
+    {
+      string name = "Mom's Garage";
+      Venue testVenue = new Venue(name);
+      testVenue.Save();
+      string newName = "Dad's Garage";
+      testVenue.Update(newName);
+
+      string result = testVenue.GetName();
+Console.WriteLine(result + "  R5");
+Console.WriteLine(newName + "  NN5");
+      Assert.Equal(newName, result);
     }
 
     public void Dispose()

@@ -177,7 +177,7 @@ namespace Band_Object
       }
     }
 
-    public List<Venue> GetVenues()
+    public List<Venue> GetVenuesByBandId()
     {
       SqlConnection conn = DB.Connection();
       conn.Open();
