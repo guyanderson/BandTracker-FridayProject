@@ -31,9 +31,33 @@ namespace BandTracker_Modules
       };
 
       Post["/bands/new"] = _ => {
-        Band newBand = new Band(Request.Form["band-name"]);
-        newBand.Save();
-        return View["success.cshtml"];
+        string testIfEmpty = Request.Form["band-name"];
+        if (testIfEmpty != "")
+        {
+          Band newBand = new Band(Request.Form["band-name"]);
+          newBand.Save();
+          return View["success.cshtml"];
+        }
+        else {
+          return View["oops.cshtml"];
+        }
+      };
+
+      Get["/venues/new"] = _ => {
+        return View["venue_form.cshtml"];
+      };
+
+      Post["/venues/new"] = _ => {
+        string testIfEmpty = Request.Form["venue-name"];
+        if (testIfEmpty != "")
+        {
+          Venue newVenue = new Venue(Request.Form["venue-name"]);
+          newVenue.Save();
+          return View["success.cshtml"];
+        }
+        else {
+          return View["oops.cshtml"];
+        }
       };
 
     }
