@@ -18,20 +18,20 @@ namespace Band_Object
       _name = Name;
     }
 
-        public int GetId()
-        {
-          return _id;
-        }
+    public int GetId()
+    {
+      return _id;
+    }
 
-        public string GetName()
-        {
-          return _name;
-        }
+    public string GetName()
+    {
+      return _name;
+    }
 
-        public void SetName(string newName)
-        {
-          _name = newName;
-        }
+    public void SetName(string newName)
+    {
+      _name = newName;
+    }
 
     public override bool Equals(System.Object otherBand)
       {

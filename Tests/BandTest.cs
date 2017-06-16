@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using BandTracker;
 using Band_Object;
+using Venue_Object;
 
 
 namespace Band_Test
@@ -25,11 +26,6 @@ namespace Band_Test
 
       //Assert
       Assert.Equal(0, result);
-    }
-
-    public void Dispose()
-    {
-      Band.DeleteAll();
     }
 
     [Fact]
@@ -87,6 +83,11 @@ namespace Band_Test
 
       //Assert
       Assert.Equal(testBand, result);
+    }
+
+    public void Dispose()
+    {
+      Band.DeleteAll();
     }
 
   }
