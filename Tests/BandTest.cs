@@ -85,11 +85,29 @@ namespace Band_Test
       Assert.Equal(testBand, result);
     }
 
+    [Fact]
+    public void GetVenues_ReturnsAllBands_True()
+    {
 
+      Band testBand = new Band("Guitar Hero");
+      testBand.Save();
+      Venue testVenue1 = new Venue("Mom's Garage");
+      testVenue1.Save();
+      Venue testVenue2 = new Venue("Dad's Garage");
+      testVenue2.Save();
+
+      testBand.AddVenue(testVenue1);
+      testBand.AddVenue(testVenue2);
+      List<Venue> savedVenues = testBand.GetVenues();
+      List<Venue> testList = new List<Venue> {testVenue1, testVenue2};
+
+      Assert.Equal(testList, savedVenues);
+    }
 
     public void Dispose()
     {
       Band.DeleteAll();
+      Venue.DeleteAll();
     }
 
   }

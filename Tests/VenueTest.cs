@@ -108,6 +108,7 @@ namespace Venue_Test
 
     public void Dispose()
     {
+      Band.DeleteAll();
       Venue.DeleteAll();
     }
 
