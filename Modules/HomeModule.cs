@@ -60,6 +60,25 @@ namespace BandTracker_Modules
         }
       };
 
+      Get["/bands/{id}"] = parameters => {
+        Dictionary<string, object> model = new Dictionary<string, object>();
+        Band selectedBand = Band.Find(parameters.id);
+        List<Venue> allVenues = Venue.GetAll();
+        List<Venue> specificVenues = selectedBand.GetVenuesByBandId();
+        model.Add("band", selectedBand);
+        model.Add("venue", allVenues);
+        model.Add("specificVenue", specificVenues);
+        return View["band_edit.cshtml", model];
+      };
+
+      Post["/bands/{id}/band_edit"] = _ => {
+        Venue newVenue = Venue.Find(Request.Form["venue-id"]);
+        Band currentBand = Band.Find(Request.Form["band-id"]);
+        currentBand.AddVenue(newVenue);
+        return View["success.cshtml"];
+      };
+
+
     }
   }
 }
