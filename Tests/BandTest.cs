@@ -44,7 +44,7 @@ namespace Band_Test
     }
 
     [Fact]
-    public void Save_BandSavesToDatabase_BandList()
+    public void Save_SavesBandsToDatabase_True()
     {
       //Arrange
       Band Band1 = new Band("Guitar Hero");
@@ -56,6 +56,23 @@ namespace Band_Test
 
       //Assert
       Assert.Equal(testList, result);
+    }
+
+    [Fact]
+    public void Save_AssignsIdToBand_True()
+    {
+      //Arrange
+      Band testBand = new Band("Guitar Hero");
+      testBand.Save();
+
+      //Act
+      Band savedBand = Band.GetAll()[0];
+
+      int result = savedBand.GetId();
+      int testId = testBand.GetId();
+
+      //Assert
+      Assert.Equal(testId, result);
     }
 
   }
