@@ -11,6 +11,9 @@ namespace BandTracker_Modules
     public HomeModule()
     {
 
+      Get["/"] = _ => {
+        return View["index.cshtml"];
+      };
 
     }
   }
