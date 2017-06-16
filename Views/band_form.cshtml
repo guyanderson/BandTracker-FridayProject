@@ -1,0 +1,17 @@
+@{
+  Layout="Shared/_Layout.cshtml";
+}
+
+<br>
+<br>
+<h1>Is your favorite band missing from our list? Add it now!</h2>
+<br>
+<br>
+<form action="/bands/new" method="post">
+  <label for="band-name">Band name:</label>
+  <input id="band-name" name="band-name" type="text">
+  <button type="submit">Add</button>
+</form>
+<br>
+<br>
+<h4><a href="/">Return home</a></h4>
