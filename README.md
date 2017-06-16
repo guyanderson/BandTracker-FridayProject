@@ -15,7 +15,7 @@ _A not-so-useful app that will tell the user where bands have played. User will 
 * In your computers terminal type "git clone" & paste the copied link.
 * Open SSMS
 * Select File > Open > bandTracker and select Scrips.sql file.
-* ========CREATE DATABASE [hair_salon]=================
+* In the SQLQuery command line type in CREATE DATABASE [hair_salon]
 * Save the file.
 * Click Execute.
 * Verify that the database has been created and the schema and/or data imported. (good luck!)
@@ -40,7 +40,7 @@ _A not-so-useful app that will tell the user where bands have played. User will 
 
 ## Known Bugs
 
-_._
+_Program will allow duplicate venue names and bands names. Program will allow duplicate associations between the same venue and band._
 
 
 ## Technologies Used
