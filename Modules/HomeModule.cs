@@ -96,6 +96,13 @@ namespace BandTracker_Modules
         return View["success.cshtml"];
       };
 
+      Patch["/venues/{id}/venue_edit"] = parameters => {
+        Venue SelectedVenue = Venue.Find(parameters.id);
+        string newName = Request.Form["venue-name"];
+        SelectedVenue.Update(newName);
+        return View["success.cshtml"];
+      };
+
     }
   }
 }

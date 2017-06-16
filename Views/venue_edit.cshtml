@@ -29,4 +29,13 @@
 </form>
 <br>
 <br>
+<form  action="/venues/@Model["venue"].GetId()/venue_edit" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+  <input name="venue-id" type="hidden" value="@Model["venue"].GetId()">
+  <label for ="venue-name">Change venue name</label>
+  <input id="venue-name" name="venue-name" type="text">
+  <button type="submit">Submit</button>
+</form>
+<br>
+<br>
 <p><a href="/">Return to Main Page</a></p>

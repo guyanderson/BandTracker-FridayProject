@@ -34,9 +34,9 @@ namespace Venue_Object
       return _name;
     }
 
-    public void SetName(string Name)
+    public void SetName(string newName)
     {
-      _name = Name;
+      _name = newName;
     }
 
     public override bool Equals(System.Object otherVenue)
