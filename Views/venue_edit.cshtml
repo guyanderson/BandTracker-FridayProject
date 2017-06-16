@@ -1,0 +1,32 @@
+@{
+  Layout="Shared/_Layout.cshtml";
+}
+
+<br>
+<br>
+<h2> Edit Venue: @Model["venue"].GetName()</h2>
+<br>
+<p>Band:</p>
+<ul>
+  @foreach (var band in @Model["specificBand"])
+  {
+    <li>@band.GetName()</li>
+  }
+</ul>
+
+<br>
+<br>
+<form action="/venues/@Model["venue"].GetId()/venue_edit" method="post">
+  <input name="venue-id" type="hidden" value="@Model["venue"].GetId()">
+  <label for="band-name">Add band to venue</label>
+  <select name="band-id">
+    @foreach (var band in @Model["band"])
+    {
+      <option value="@band.GetId()">@band.GetName()</option>
+    }
+  </select>
+  <button type="submit">Add</button>
+</form>
+<br>
+<br>
+<p><a href="/">Return to Main Page</a></p>
