@@ -75,5 +75,19 @@ namespace Band_Test
       Assert.Equal(testId, result);
     }
 
+    [Fact]
+    public void Find_FindsBandInDatabase_True()
+    {
+      //Arrange
+      Band testBand = new Band("Guitar Hero");
+      testBand.Save();
+
+      //Act
+      Band result = Band.Find(testBand.GetId());
+
+      //Assert
+      Assert.Equal(testBand, result);
+    }
+
   }
 }
