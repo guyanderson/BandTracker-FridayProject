@@ -32,5 +32,16 @@ namespace Band_Test
       Band.DeleteAll();
     }
 
+    [Fact]
+    public void Equals_TrueForSameName_True()
+    {
+      //Arrange, Act
+      Band Band1 = new Band("Guitar Hero");
+      Band Band2 = new Band("Guitar Hero");
+
+      //Assert
+      Assert.Equal(Band1, Band2);
+    }
+
   }
 }
