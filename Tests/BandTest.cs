@@ -43,5 +43,20 @@ namespace Band_Test
       Assert.Equal(Band1, Band2);
     }
 
+    [Fact]
+    public void Save_BandSavesToDatabase_BandList()
+    {
+      //Arrange
+      Band Band1 = new Band("Guitar Hero");
+      Band1.Save();
+
+      //Act
+      List<Band> result = Band.GetAll();
+      List<Band> testList = new List<Band>{Band1};
+
+      //Assert
+      Assert.Equal(testList, result);
+    }
+
   }
 }
