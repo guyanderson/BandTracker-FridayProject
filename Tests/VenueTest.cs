@@ -84,6 +84,28 @@ namespace Venue_Test
       Assert.Equal(testVenue, result);
     }
 
+    [Fact]
+    public void GetBands_ReturnsAllVenues_True()
+    {
+      Venue testVenue = new Venue("Mom's Garage");
+      testVenue.Save();
+      Band testBand1 = new Band("Banjo Hero");
+      testBand1.Save();
+      Band testBand2 = new Band("Guitar Hero");
+      testBand2.Save();
+
+      testVenue.AddBand(testBand1);
+      testVenue.AddBand(testBand2);
+
+      List<Band> savedBands = testVenue.GetBands();
+      List<Band> testList = new List<Band> {testBand1, testBand2};
+      //CONSOLE LOGGING LIST ITEMS (GETTING IDs)
+      Console.WriteLine("savedBands list id = {0}, {1}", savedBands[0].GetName(), savedBands[1].GetId());
+      Console.WriteLine("testList list id = {0}, {1}", testList[0].GetName(), testList[1].GetId());
+
+      Assert.Equal(testList, savedBands);
+    }
+
     public void Dispose()
     {
       Venue.DeleteAll();

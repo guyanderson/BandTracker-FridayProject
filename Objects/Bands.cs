@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System;
 using BandTracker;
+using Venue_Object;
 
 
 namespace Band_Object
@@ -23,14 +24,19 @@ namespace Band_Object
       return _id;
     }
 
+    public void SetId(int Id)
+    {
+      _id = Id;
+    }
+
     public string GetName()
     {
       return _name;
     }
 
-    public void SetName(string newName)
+    public void SetName(string Name)
     {
-      _name = newName;
+      _name = Name;
     }
 
     public override bool Equals(System.Object otherBand)
